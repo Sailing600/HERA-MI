@@ -1,24 +1,20 @@
 # HERA-MI
 
-Pour réaliser votre exercice je commence par créer deux machines virtuelles pour pouvoir y mettre docker et donc avoir par la suite des conteneurs dans deux réseaux distinct.
+To carry out your exercise I start by creating two virtual machines to be able to dock on them and then have containers in two separate networks.
 
+To be able to synchronize the files from one container to the other 
+I link the two by an ssh connection with a key authentication which allows the two containers to be linked constantly.
 
-Pour pouvoir synchroniser les fichiers d’un conteneurs à l’autre je lie ces deux derniers par une connection ssh avec une authentification par clé ce qui permet au deux conteneurs d’être liés constamment.
+A directory is created on each container to accommodate the different files.
 
-Un repertoire est créer sur chaque conteneur pour pouvoir accueillir les différents fichiers.
-
-Je clone les fichiers présent sur votre Repository Git via la commande git clone :
+I clone the files on your Git Repository using the git clone command:
 
 git clone https://github.com/hera-mi/test_material.git
 
+I then create a cron task that will be able to automate the transfer of files from the directory of the containers C1 to C2 when a difference in content is present.
 
-Je créer ensuite une tache cron qui va pouvoir antomatiser le transfert des fichiers du répertoire du conteneurs C1 à C2 quand une différence de contenu est présente.
+/1 * * * * scp -r -p home/files_hera_mi/ root@192.168.1.87:home/new_files_hera_mi
 
+Then I create a dockerfile to be able to deploy the C3 container containing the Mongo DB database.
 
-*/1  *  *   *   *     scp -r -p home/files_hera_mi/* root@192.168.1.87:home/new_files_hera_mi
-
-
-
-Ensuite je créer un dockerfile pour pouvoir deployer le conteneur C3 contenant la base de données Mongo DB.
-
-je créer également un docker files pour déployer le VPN sur le conteneur C4.
+I also create a docker files to deploy the VPN on the C4 container.
