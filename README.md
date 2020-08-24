@@ -13,7 +13,8 @@ git clone https://github.com/hera-mi/test_material.git
 
 
 
-Je créer ensuite un script scp pour pouvoir transférer les fichiers du répertoire du conteneurs C1 à C2 : 
+Je créer ensuite un script scp pour pouvoir transférer les fichiers du répertoire du conteneurs C1 à C2 que je nomme file_transfer.sh
+
 
 
 
