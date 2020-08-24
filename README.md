@@ -12,11 +12,13 @@ Je clone les fichiers présent sur votre Repository Git via la commande git clon
 git clone https://github.com/hera-mi/test_material.git
 
 
+Je créer ensuite une tache cron qui va pouvoir antomatiser le transfert des fichiers du répertoire du conteneurs C1 à C2 quand une différence de contenu est présente.
 
-Je créer ensuite un script scp pour pouvoir transférer les fichiers du répertoire du conteneurs C1 à C2 que je nomme file_transfer.sh
 
-
+*/1  *  *   *   *     scp -r -p home/files_hera_mi/* root@192.168.1.87:home/new_files_hera_mi
 
 
 
 Ensuite je créer un dockerfile pour pouvoir deployer le conteneur C3 contenant la base de données Mongo DB.
+
+je créer également un docker files pour déployer le VPN sur le conteneur C4.
